@@ -18,7 +18,7 @@ library(dplyr)
 # readr::write_csv(top100, "data-raw/fred.csv")
 
 # set TRUE to update ID list
-if (FALSE) {
+if (TRUE) {
   fred_raw <-
     readr::read_csv("data-raw/fred.csv") |>
     arrange(id)
@@ -48,14 +48,6 @@ safe_fredr <- function(x) {
 fred <-
   fred_raw |>
   mutate(ts = purrr::map(id, safe_fredr))
-
-# fred_no_error <-
-#   fred |>
-#   mutate(is_error = map_lgl(ts, \(x) inherits(try(seas(x)), "try-error"))) |>
-#   filter(!is_error) |>
-#   select(id, title, frequency, units) |>
-#   arrange(id)
-
 
 usethis::use_data(fred, overwrite = TRUE)
 
