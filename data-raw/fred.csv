@@ -1,0 +1,38 @@
+id,title,frequency,units
+PCOPPUSDM,Global price of Copper,Monthly,U.S. Dollars per Metric Ton
+PCU483111483111,Producer Price Index by Industry: Deep Sea Freight Transportation,Monthly,Index Jun 1988=100
+SEXRNSA,S&P/Case-Shiller WA-Seattle Home Price Index,Monthly,Index Jan 2000=100
+PNGASJPUSDM,"Global price of LNG, Asia",Monthly,U.S. Dollars per Million Metric British Thermal Unit
+HQMCB10YR,10-Year High Quality Market (HQM) Corporate Bond Spot Rate,Monthly,Percent
+PNRGINDEXM,Global price of Energy index,Monthly,Index 2016 = 100
+REAINTRATREARAT10Y,10-Year Real Interest Rate,Monthly,Percent
+GFDEBTN,Federal Debt: Total Public Debt,"Quarterly, End of Period",Millions of Dollars
+MSPUS,Median Sales Price of Houses Sold for the United States,Quarterly,Dollars
+PCUATRNWRATRNWR,Producer Price Index by Industry: Transportation and Warehousing Industries,Monthly,Index Dec 2006=100
+RHORUSQ156N,Homeownership Rate in the United States,Quarterly,Percent
+ASPUS,Average Sales Price of Houses Sold for the United States,Quarterly,Dollars
+FDHBFRBN,Federal Debt Held by Federal Reserve Banks,"Quarterly, End of Period",Billions of Dollars
+PCU484484,Producer Price Index by Industry: Truck Transportation,Monthly,Index Dec 2003=100
+RRVRUSQ156N,Rental Vacancy Rate in the United States,Quarterly,Percent
+APU0000FF1101,"Average Price: Chicken Breast, Boneless (Cost per Pound/453.6 Grams) in U.S. City Average",Monthly,U.S. Dollars
+CASTHPI,All-Transactions House Price Index for California,Quarterly,Index 1980:Q1=100
+FLSTHPI,All-Transactions House Price Index for Florida,Quarterly,Index 1980:Q1=100
+QCAR628BIS,Real Residential Property Prices for Canada,Quarterly,Index 2010=100
+USSTHPI,All-Transactions House Price Index for the United States,Quarterly,Index 1980:Q1=100
+BOGZ1FL192090005Q,"Households; Net Worth, Level",Quarterly,Millions of Dollars
+QAUR628BIS,Real Residential Property Prices for Australia,Quarterly,Index 2010=100
+QBPBSTAS,Balance Sheet: Total Assets,Quarterly,Millions of U.S. Dollars
+WPU10170502,"Producer Price Index by Commodity: Metals and Metal Products: Steel Wire, Stainless Steel",Monthly,Index Dec 2010=100
+BOGZ1FL193020005Q,"Households; Checkable Deposits and Currency; Asset, Level",Quarterly,Millions of Dollars
+DRALACBN,"Delinquency Rate on All Loans, All Commercial Banks","Quarterly, End of Period",Percent
+LIOR3M,3-month London Interbank Offered Rate (LIBOR),Quarterly,Percent per Annum
+NPTLTL,Nonperforming Total Loans (past due 90+ days plus nonaccrual) to Total Loans (DISCONTINUED),"Quarterly, End of Period",Percent
+ACTLISCOUUS,Housing Inventory: Active Listing Count in the United States,Monthly,Level
+NYSTHPI,All-Transactions House Price Index for New York,Quarterly,Index 1980:Q1=100
+MEDDAYONMARUS,Housing Inventory: Median Days on Market in the United States,Monthly,Level
+COMREPUSQ159N,Commercial Real Estate Prices for United States,Quarterly,Percent Change from Year Ago
+DRTSCLCC,Net Percentage of Domestic Banks Tightening Standards for Credit Card Loans,Quarterly,Percent
+HDTGPDUSQ163N,Household Debt to GDP for United States,Quarterly,Ratio
+WFRBST01134,Share of Total Net Worth Held by the Top 1% (99th to 100th Wealth Percentiles),Quarterly,Percent of Aggregate
+DRTSCILM,Net Percentage of Domestic Banks Tightening Standards for Commercial and Industrial Loans to Large and Middle-Market Firms,Quarterly,Percent
+QCNR628BIS,Real Residential Property Prices for China,Quarterly,Index 2010=100
