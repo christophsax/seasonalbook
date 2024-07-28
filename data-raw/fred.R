@@ -1,53 +1,46 @@
 library(fredr)
-library(readr)
-library(dplyr)
+library(tidyverse)
+library(tsbox)
 
-# # the 100 most popular series, not seasonally adjusted
-# top100 <- fredr_series_search_text(
-#   search_text = "nsa",
-#   filter_variable = "seasonal_adjustment",
-#   filter_value = "Not Seasonally Adjusted",
-#   order_by = "popularity"
-# ) |>
-#   select(id, title, frequency_short, units, popularity) |>
-#   filter(frequency_short %in% c("M", "Q")) |>
-#   arrange(desc(popularity)) |>
-#   slice(1:100) |>
-#   select(id, title)
+# construct table with IDs -----------------------------------------------------
 
-# readr::write_csv(top100, "data-raw/fred.csv")
+monthly <-
+  fredr_tags_series("nsa;monthly", order_by = "popularity", sort_order = "desc")
 
-# set TRUE to update ID list
-if (TRUE) {
-  fred_raw <-
-    readr::read_csv("data-raw/fred.csv") |>
-    arrange(id)
+monthly_p2 <-
+  fredr_tags_series("nsa;monthly", order_by = "popularity", sort_order = "desc", offset = 1000)
 
-  # query fred and update title frequency and
-  fred_updated <-
-    purrr::list_rbind(purrr::map(fred_raw$id, fredr_series)) |>
-    select(id, title, frequency, units) |>
-    arrange(id)
 
-  readr::write_csv(fred_updated, "data-raw/fred.csv")
-}
+quarterly <-
+  fredr_tags_series("nsa;quarterly", order_by = "popularity", sort_order = "desc")
 
-fred_raw <-
-  readr::read_csv("data-raw/fred.csv") |>
-  arrange(id)
+quarterly_p2 <-
+  fredr_tags_series("nsa;quarterly", order_by = "popularity", sort_order = "desc", offset = 1000)
 
-safe_fredr <- function(x) {
-  message(x)
-  ans <- try(fredr(x))
-  if (inherits(ans, "try-error")) return(ans)
-  ans |>
-    select(time = date, value) |>
-    tsbox::ts_ts()
-}
+fred_id <-
+  bind_rows(monthly, monthly_p2, quarterly, quarterly_p2) |>
+  select(id, title, frequency, units, popularity)
+
+write_csv(fred_id, "data-raw/fred.csv")
+
+
+# donwload series --------------------------------------------------------------
+
+fred_id <- read_csv("data-raw/fred.csv")
+
+raw <-
+  fred_id |>
+  mutate(data = purrr::map(id, function(x) {cat("."); fredr(x)}))
 
 fred <-
-  fred_raw |>
-  mutate(ts = purrr::map(id, safe_fredr))
+  raw |>
+  mutate(
+    ts = lapply(data, function(x) try(ts_ts(ts_na_omit(select(x, time = date, value))))
+  )) |>
+  filter(!sapply(ts, inherits, "try-error")) |>
+  select(-data)
 
-usethis::use_data(fred, overwrite = TRUE)
+# store data -------------------------------------------------------------------
+
+usethis::use_data(fred)
 

@@ -1,16 +1,17 @@
-#' FRED Time Series Examples
+#' FRED Time Series Data
 #'
 #' A collection of popular time series from FRED.
 #'
-#' @format ## `fred`
-#' A nested tibble
+#' @format A tibble with 3,991 rows and 6 variables:
 #' \describe{
-#'   \item{id}{FRED series ID}
-#'   \item{title}{title}
-#'   \item{frequency}{Quartely, Monthly}
-#'   \item{units}{units}
-#'   \item{ts}{Time Series data (as `ts` object)}
+#'   \item{id}{Character. Unique identifier for each series.}
+#'   \item{title}{Character. Title or name of the series.}
+#'   \item{frequency}{Character. Frequency of data collection (e.g., Monthly).}
+#'   \item{units}{Character. Units of measurement (e.g., Percent, Index, Level, Millions of Dollars, U.S. Dollars).}
+#'   \item{popularity}{Integer. Popularity score of the series.}
+#'   \item{ts}{List. Time series data for the respective series.}
 #' }
+#'
 #' @source <https://fred.stlouisfed.org>
 #' @examples
 #' library(dplyr)
